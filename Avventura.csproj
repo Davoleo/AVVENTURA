@@ -1,0 +1,20 @@
+<Project Sdk="Godot.NET.Sdk/4.2.2">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net7.0</TargetFramework>
+    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'ios' ">net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
+    <Content Include="level\level_test.tscn" />
+    <Content Include="level\tileset.png" />
+    <Content Include="level\tileset.png.import" />
+    <Content Include="player\char.png" />
+    <Content Include="player\char.png.import" />
+    <Content Include="player\player.gd" />
+    <Content Include="player\player.tscn" />
+    <Content Include="project.godot" />
+  </ItemGroup>
+</Project>
