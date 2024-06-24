@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqcmiq0d5lets"]
+
+[ext_resource type="Script" path="res://game/Game.cs" id="1_e5f0x"]
+[ext_resource type="PackedScene" uid="uid://bhx45hb7jo1yc" path="res://level/level_test.tscn" id="2_bjra3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qnl21"]
+font_size = 24
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_e5f0x")
+
+[node name="TileMap" parent="." instance=ExtResource("2_bjra3")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+metadata/_edit_use_anchors_ = true
+
+[node name="HPLabel" type="Label" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "HP: XX"
+label_settings = SubResource("LabelSettings_qnl21")

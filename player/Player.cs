@@ -6,16 +6,35 @@ namespace Avventura.player;
 public partial class Player : CharacterBody2D
 {
     private const int MaxHealth = 10;
-    private const float Speed = 400;
-    private const float JumpVelocity = -600.0F;
+    private const float Speed = 500;
+    private const float JumpVelocity = -900.0F;
 
     private readonly int _gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsInt32();
+    private int _health;
 
-    private int Health { get; set; }
+    public int Health
+    {
+        get => _health;
+        private set
+        {
+            EmitSignal(SignalName.HealthChanged, _health, value);
+            _health = value;
+        }
+    }
+
+    [Signal]
+    public delegate void HealthChangedEventHandler(int oldValue, int newValue);
 
     public override void _Ready()
     {
+        Console.WriteLine("HealthSet");
         Health = MaxHealth;
+    }
+
+    public void TakeDamage(int amount, Vector2 sourcePos)
+    {
+        Health -= amount;
+        Velocity = Velocity.MoveToward(sourcePos, -2);
     }
 
     public override void _PhysicsProcess(double delta)

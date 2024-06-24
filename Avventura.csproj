@@ -17,4 +17,7 @@
     <Content Include="player\player.tscn" />
     <Content Include="project.godot" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="game\" />
+  </ItemGroup>
 </Project>
